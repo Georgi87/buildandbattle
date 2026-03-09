@@ -1,0 +1,9 @@
+{
+  "name": "Build and Battle",
+  "short_name": "BuildBattle",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "HTML5 card and dice game",
+  "icons": []
+}

@@ -57,8 +57,12 @@ function playRound(round) {
 
 function selectPlayCard(card, player, round) {
     const value = parseInt(card.textContent);
-    // Remove from hand
+    // Remove from hand and array
     card.remove();
+    const arrIndexP1 = player1Cards.indexOf(value);
+    if (arrIndexP1 !== -1) {
+        player1Cards.splice(arrIndexP1, 1);
+    }
     // Place face down
     const playDiv = document.getElementById('p1Play').querySelector('.playCard');
     playDiv.textContent = '?'; // face down
@@ -77,6 +81,7 @@ function selectPlayCard(card, player, round) {
         if (arrIndex !== -1) {
             player2Cards.splice(arrIndex, 1);
         }
+        // Place face down for computer
         const p2PlayDiv = document.getElementById('p2Play').querySelector('.playCard');
         p2PlayDiv.textContent = '?';
         p2PlayDiv.dataset.value = value2;

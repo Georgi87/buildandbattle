@@ -1,0 +1,9 @@
+{
+  "name": "buildandbattle",
+  "version": "1.0.0",
+  "description": "HTML5 card and dice game",
+  "main": "index.html",
+  "scripts": {},
+  "author": "",
+  "license": "MIT"
+}
