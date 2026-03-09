@@ -19,6 +19,7 @@ let opponentRoll = null;
 let isOpponentRoll = false;
 let p1Points = 0;
 let p2Points = 0;
+let secondPhaseRoundInProgress = false;
 
 function startSecondPhase() {
     p1Points = 0;
@@ -29,6 +30,7 @@ function startSecondPhase() {
 }
 
 function playRound(round) {
+    secondPhaseRoundInProgress = false;
     if (round > 6) {
         // End second phase
         if (p1Points > p2Points) {
@@ -56,9 +58,12 @@ function playRound(round) {
 }
 
 function selectPlayCard(card, player, round) {
+    if (secondPhaseRoundInProgress) return;
+    secondPhaseRoundInProgress = true;
     const value = parseInt(card.textContent);
-    // Remove from hand and array
+    // Remove from hand for Player 1
     card.remove();
+    // Remove from player1Cards array ONLY ONCE
     const arrIndexP1 = player1Cards.indexOf(value);
     if (arrIndexP1 !== -1) {
         player1Cards.splice(arrIndexP1, 1);
@@ -76,7 +81,7 @@ function selectPlayCard(card, player, round) {
         const value2 = parseInt(randomCard.textContent);
         // Remove from DOM
         randomCard.remove();
-        // Remove from player2Cards array
+        // Remove from player2Cards array ONLY ONCE
         const arrIndex = player2Cards.indexOf(value2);
         if (arrIndex !== -1) {
             player2Cards.splice(arrIndex, 1);
@@ -102,6 +107,7 @@ function selectPlayCard(card, player, round) {
                 message.textContent = 'Tie! No points awarded.';
             }
             updatePoints();
+            secondPhaseRoundInProgress = false;
             setTimeout(function() { playRound(round + 1); }, 3000);
         }, 1500);
     }, 1000);
