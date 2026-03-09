@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build and Battle Card Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game">
+        <h1>Build and Battle</h1>
+        <div id="cards">
+            <!-- Cards will be generated here -->
+        </div>
+        <div id="dice">
+            <div class="die" id="die1"></div>
+            <div class="die" id="die2"></div>
+        </div>
+        <div id="players">
+            <div class="player" id="player1">
+                <h3>Player 1</h3>
+                <div class="hand"></div>
+                <div class="score">Cards: 0</div>
+            </div>
+            <div class="player" id="player2">
+                <h3>Player 2 (Computer)</h3>
+                <div class="hand"></div>
+                <div class="score">Cards: 0</div>
+            </div>
+        </div>
+        <div id="playArea">
+            <div id="p1Play">Player 1's card: <div class="playCard"></div></div>
+            <div id="p2Play">Player 2's card: <div class="playCard"></div></div>
+        </div>
+        <div id="points">
+            <div>Player 1 points: <span id="p1Points">0</span></div>
+            <div>Player 2 points: <span id="p2Points">0</span></div>
+        </div>
+        <button id="rollBtn">Roll Dice to Start</button>
+        <div id="message"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
